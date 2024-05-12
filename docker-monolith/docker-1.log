@@ -1,0 +1,16 @@
+REPOSITORY                  TAG       IMAGE ID       CREATED              SIZE
+a80486dx4/ubuntu-tmp-file   latest    c2ffe866ba2b   About a minute ago   63.2MB
+<none>                      <none>    57727a416c26   5 months ago         104MB
+<none>                      <none>    35191c19e193   5 months ago         104MB
+bitnami/postgresql          16        a0e6fe8bb345   5 months ago         274MB
+postgres                    13        84864a0c80e5   5 months ago         413MB
+bitnami/airflow             2         e2e1ed97e82e   5 months ago         2.24GB
+bitnami/airflow-scheduler   2         a6f85464ffcd   5 months ago         2.2GB
+portainer/portainer-ce      latest    723b98f769f3   5 months ago         294MB
+bitnami/airflow-worker      2         2455ff33df1e   5 months ago         2.24GB
+redis                       latest    961dda256baa   6 months ago         138MB
+bitnami/redis               7.0       c00818531437   6 months ago         91.5MB
+apache/airflow              2.7.3     56d2fbb018bb   6 months ago         1.54GB
+ubuntu                      18.04     f9a80a55f492   11 months ago        63.2MB
+hello-world                 latest    d2c94e258dcb   12 months ago        13.3kB
+2_7_1-airflow               latest    8127f5a890fa   N/A                  1.77GB
