@@ -6,7 +6,7 @@ RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
 
 ADD Gemfile* $APP_HOME/
-RUN bundle install
+RUN gem install bundle:1.17.2 && bundle install
 ADD . $APP_HOME
 
 ENV COMMENT_DATABASE_HOST comment_db
