@@ -5,24 +5,26 @@ services:
     volumes:
       - post_db:/data/db
     networks:
-      - reddit
+      - back_net
   ui:
     build: ./ui
     image: ${USERNAME}/ui:1.0
     ports:
       - 9292:9292/tcp
     networks:
-      - reddit
+      - front_net
   post:
     build: ./post-py
     image: ${USERNAME}/post:1.0
     networks:
-      - reddit
+      - front_net
+      - back_net
   comment:
     build: ./comment
     image: ${USERNAME}/comment:1.0
     networks:
-      - reddit
+      - front_net
+      - back_net
 
   prometheus:
     image: ${USERNAME}/prometheus
@@ -34,10 +36,14 @@ services:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
       - '--storage.tsdb.retention=1d' # Задаем время хранения метрик в 1 день
+    networks:
+      - front_net
+      - back_net
 
 volumes:
   post_db:
   prometheus_data:
 
 networks:
-  reddit:
+  front_net:
+  back_net:
