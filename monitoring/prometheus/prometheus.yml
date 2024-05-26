@@ -1,0 +1,27 @@
+global:
+  # с какой частотой собирать метрики
+  scrape_interval: '5s'
+  # scrape_timeout: "10s"
+  # evaluation_interval: "1m"
+
+scrape_configs:
+  # Джобы объединябт в группы endpoint'ы, выполняющие одинаковые функции
+  - job_name: prometheus
+    static_configs:
+      - targets:
+          - 'localhost:9090'
+
+  - job_name: ui
+    static_configs:
+      - targets:
+          - 'ui:9292'
+
+  - job_name: comment
+    static_configs:
+      - targets:
+          - 'comment:9292'
+
+  - job_name: 'node'
+    static_configs:
+      - targets:
+        - 'node-exporter:9100'
