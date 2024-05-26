@@ -4,5 +4,5 @@ FROM bitnami/fluentd:1.10.4
 # RUN gem install fluent-plugin-elasticsearch --no-rdoc --no-ri --version 1.9.5
 RUN gem install fluent-plugin-elasticsearch --version 1.9.5
 # RUN gem install fluent-plugin-grok-parser --no-rdoc --no-ri --version 1.0.0
-RUN gem install fluent-plugin-grok-parser --version 1.0.0
+RUN gem install fluent-plugin-grok-parser --version 2.0.0
 ADD fluent.conf /fluentd/etc
