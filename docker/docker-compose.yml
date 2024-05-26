@@ -12,6 +12,8 @@ services:
   ui:
     # image: ${USERNAME}/ui:1.0
     image: ${USERNAME}/ui:logging
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
     ports:
       - 9292:9292/tcp
     networks:
@@ -28,6 +30,7 @@ services:
     environment:
       - POST_DATABASE_HOST=post_db
       - POST_DATABASE=posts
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
     depends_on:
       - post_db
     ports:
@@ -44,6 +47,8 @@ services:
   comment:
     # image: ${USERNAME}/comment:1.0
     image: ${USERNAME}/comment:logging
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
     networks:
       - front_net
       - back_net
