@@ -30,7 +30,8 @@ services:
     environment:
       - POST_DATABASE_HOST=post_db
       - POST_DATABASE=posts
-      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
+      # - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
+      - ZIPKIN_ENABLED=true
     depends_on:
       - post_db
     ports:
