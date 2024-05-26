@@ -43,8 +43,12 @@ services:
     # ports:
     #   - 5000:5000
     networks:
-      - front_net
-      - back_net
+      back_net:
+        aliases:
+          - post
+      front_net:
+        aliases:
+          - post
     logging:
       driver: "fluentd"
       options:
@@ -58,8 +62,12 @@ services:
       - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
       - COMMENT_DATABASE_HOST=comment_db
     networks:
-      - front_net
-      - back_net
+      back_net:
+        aliases:
+          - comment
+      front_net:
+        aliases:
+          - comment
 
   prometheus:
     image: ${USERNAME}/prometheus
