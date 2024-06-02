@@ -6,6 +6,7 @@ metadata:
   labels:
     app: reddit
     component: mongo
+    comment-db: "true"      # Метка в deployment, чтобы было понятно, что развернуто
 
 spec:
   replicas: 1
@@ -19,6 +20,7 @@ spec:
       labels:
         app: reddit
         component: mongo
+        comment-db: "true"
     spec:
       containers:
       - image: mongo:3.2
