@@ -1,20 +1,30 @@
 piVersion: apps/v1
 kind: Deployment
 
-metadata:
-  name: ui-deployment
+metadata:           # Блок метаданных деплоя
+  name: ui
+  labels:
+    app: reddit
+    component: ui
 
-spec:
-  replicas: 1
-  selector:
+spec:               # Блок спецификации деплоя
+  replicas: 3
+  selector:         # селектор описывает как отслеживать POD's
     matchLabels:
-      app: ui
-  template:
+      app: reddit
+      component: ui
+  template:         # Блок описания POD'ов
     metadata:
-      name: ui
+      name: ui-pod
       labels:
-        app: ui
+        app: reddit
+        component: ui
     spec:
       containers:
       - image: chromko/ui
         name: ui
+        env:
+        - name: ENV   # Извлечь значение из контекста запуска
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
